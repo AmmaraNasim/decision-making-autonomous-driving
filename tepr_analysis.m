@@ -29,7 +29,6 @@ for subject = 1:1:7
         %eyetracking
         filenameE = ['v',num2str(subject),num2str(trial),num2str(video),'fixation'];
 
-
         %create corrected time stamp (starting with 1 in ms)
         eyedata{trial, subject}{video}.(filenameE).TIMESTAMPc = eyedata{trial, subject}{video}.(filenameE).TIMESTAMP - (eyedata{trial, subject}{video}.(filenameE).TIMESTAMP(1)-1);
         
@@ -84,19 +83,7 @@ for subject = 1:1:7
         
         %length of interpolated coordinates
         lenint = abs(x(:,1) - x(:,2)); 
-        
-%         visualizing before interpolation
-%         
-%         for ii = 1:2 %throws out 138 plots or more - dont execute lightly
-%         
-%         xx = linspace(x(ii,1),x(ii,2),lenint(ii,1)+100);
-%         figure
-%         scatter(xx,eyedata{trial, subject}.(filenameE).RIGHT_PUPIL_SIZE(x(ii,1)-49:x(ii,2)+50))
-%         ylim([0 2000])
-%         
-%         end
-        
-        
+                
         %interpolation
         
         for ii = 1:1:size(x,1) %loop through coordinates
