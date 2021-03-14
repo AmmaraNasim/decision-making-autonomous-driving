@@ -2,6 +2,7 @@
 Decision Making in Autonomous Driving using Eye Tracker
 
 Steps:
+
 Firstly Preprocessing of data was performed.
 
 1. Interpolation: To attenuate artifacts like eyeblinks a linear interpolation algorithm was applied.
