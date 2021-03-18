@@ -95,17 +95,6 @@ for subject = 1:1:7
             eyedata{trial, subject}{video}.(filenameE).RIGHT_GAZE_X(x(ii,1):x(ii,2)-1) = (interp1(x(ii,1:2),RVX(ii,1:2),xq))';
         end
         
-        %visualizing interpolated elements
-        
-%       for ii = 250:1:252 %throws out 138 plots - dont execute lightly
-%          
-%       xx = linspace(x(ii,1),x(ii,2),lenint(ii,1)+100);
-%       figure
-%       scatter(xx,eyedata{trial, subject}.(filenameE).RIGHT_PUPIL_SIZE(x(ii,1)-49:x(ii,2)+50))
-%       ylim([0 2500])
-%       end
-
-    %detrending psize data for testing
         end 
         disp(['Interpolation subject: ',num2str(subject),' trial: ',num2str(trial),' completed..'])
     end
@@ -118,8 +107,7 @@ end
 %to the pulse in presentation data in event table
 
 % 1. MSG	3177192 Start Video corresponds to end of the first video
-% 2. MSG	3605023 Start Video corresponds to end of second video in video
-% stimuli 
+% 2. MSG	3605023 Start Video corresponds to end of second video  
 
 
 
@@ -137,7 +125,7 @@ for subject = 1:1:7
         eyedata{trial, subject}{video}.(filenameE).timecor=  eyedata{trial, subject}{video}.(filenameE).TIMESTAMP-(eyedata{trial, subject}{video}.(filenameE).TIMESTAMP(1)-1);      
 
 % time aligning for presentation data 
-% presentation data in 10th of ms, divide by 10
+% presentation data is in 10th of ms, divide by 10
 % converting stimulus time into ms from 10th of ms
 
        logdata{trial, subject}{video}.(filenameP).timecor=logdata{trial, subject}{video}.(filenameP).ReqTime/10;
@@ -292,14 +280,6 @@ for subject = 1:1:7
             grid
             xlabel('Time [ms]','fontweight','bold','fontsize',14)
             ylabel('Mean pupil size (z-score normalized)','fontweight','bold','fontsize',14)
-            if subject == 2
-            ylim([-6 18])
-            yticks([-6 -3 0 3 6 9 12 15 18])
-            end 
-            if subject == 3
-            ylim([-5 20])
-            end 
-            
             title(['TEPR by n-back task for subject ',num2str(subject)],'fontweight','bold','fontsize',14)
             legend('nb0','nb2','Location','northwest')
             hold off
@@ -503,13 +483,7 @@ for subject = 1:1:7
             grid
            
             xlabel('Time [ms]','fontweight','bold','fontsize',14)
-            ylabel('Mean pupil size (z-score normalized)','fontweight','bold','fontsize',14)
-            if subject == 2
-            ylim([-4 12])
-            end 
-            if subject == 3
-            ylim([-5 15])
-            end  
+            ylabel('Mean pupil size (z-score normalized)','fontweight','bold','fontsize',14) 
             set(gca,'fontweight','bold');
             title(['TEPRs of 0-back/2-back for target vs notarget for subject ',num2str(subject)],'fontweight','bold','fontsize',14)
             legend('target nb0','non target nb0','target nb2','non target nb2','Location','northwest')
