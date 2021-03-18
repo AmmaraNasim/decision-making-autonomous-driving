@@ -16,4 +16,4 @@ Firstly Preprocessing of data was performed.
 
 The matlab code outputs TEPR (Task Evoked Pupillary Response):
 
-![TEPRS for n-back task -Subject 2 ](output/TEPR_sub2.jpg)
+<TEPRS for n-back task -Subject 2 src="output/TEPR_sub2" width="100" height="100">
